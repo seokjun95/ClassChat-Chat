@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_board_fragment"
+        android:theme="@style/AppTheme.AppBarOverlay" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_board_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+        <ImageView
+            android:id="@+id/img_class_board"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="21dp"
+            android:layout_marginBottom="12dp"
+            android:src="@drawable/class_ic_board"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="수업 게시판"
+            android:textSize="15sp"
+            android:layout_marginLeft="7dp"
+            app:layout_constraintStart_toEndOf="@id/img_class_board"
+            app:layout_constraintTop_toTopOf="@id/img_class_board"
+            app:layout_constraintBottom_toBottomOf="@id/img_class_board"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/boardFragment_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_board_title"
+        tools:listitem="@layout/item_class" />
+
+    <TextView
+        android:id="@+id/tv_no_class"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="현재 수강중인 강의가 없거나 \n\n연동된 과목이 없습니다."
+        android:visibility="gone"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
